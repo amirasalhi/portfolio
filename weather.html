@@ -244,7 +244,7 @@
       const desc = current.weatherDesc[0].value;
       const emoji = iconMap[desc] || '🌈';
 
-      weatherIconElem.src = `https://twemoji.maxcdn.com/v/latest/svg/2600.svg`; // Soleil par défaut
+      weatherIconElem.src = `https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2600.svg`; // Soleil par défaut
       weatherIconElem.alt = desc;
 
       const detailsHTML = `

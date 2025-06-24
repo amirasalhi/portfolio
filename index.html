@@ -1,28 +1,110 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — Amira Salhi</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amira Salhi - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
-    <h1>Amira Salhi</h1>
-    <p>Développeuse web junior passionnée par la création de sites modernes et fonctionnels.</p>
+    <nav class="navbar">
+      <div class="logo">Amira Salhi</div>
+      <ul class="nav-links">
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#skills">Compétences</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
-  <section class="projects">
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Bonjour, je suis <span>Amira Salhi</span></h1>
+      <p>Développeuse web junior passionnée, spécialisée en design moderne, animations fluides et organisation experte.</p>
+      <a href="#contact" class="btn-primary">Contactez-moi</a>
+    </div>
+  </section>
+
+  <section id="about" class="section fade-in">
+    <h2>À propos de moi</h2>
+    <p>
+      Forte d’une maîtrise avancée en HTML5, CSS3, et d’une grande sensibilité au design UX/UI, je crée des sites web à la fois
+      esthétiques, accessibles et performants. Je suis passionnée par l’animation fluide qui améliore l’expérience utilisateur.
+    </p>
+  </section>
+
+  <section id="skills" class="section fade-in delay-1">
+    <h2>Compétences</h2>
+    <div class="skills-grid">
+      <div class="skill">
+        <i class="fas fa-code skill-icon"></i>
+        <h3>HTML5 & CSS3</h3>
+        <p>Utilisation avancée des balises sémantiques, flexbox, grid et animations CSS.</p>
+      </div>
+      <div class="skill">
+        <i class="fas fa-paint-brush skill-icon"></i>
+        <h3>Design Responsive</h3>
+        <p>Design mobile-first, adaptabilité parfaite sur tous types d’écrans.</p>
+      </div>
+      <div class="skill">
+        <i class="fas fa-magic skill-icon"></i>
+        <h3>Animations & Transitions</h3>
+        <p>Animations fluides en CSS, effets hover soignés, apparition progressive des éléments.</p>
+      </div>
+      <div class="skill">
+        <i class="fas fa-sitemap skill-icon"></i>
+        <h3>Organisation & SEO</h3>
+        <p>Structure claire du code, bonnes pratiques SEO et accessibilité.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section fade-in delay-2">
     <h2>Projets</h2>
-    <ul>
-      <li><strong>Mini site vitrine</strong> – Site responsive en HTML/CSS.</li>
-      <li><strong>App météo</strong> – Application météo en JS avec API.</li>
-      <li><strong>Formulaire de contact</strong> – Validation JavaScript et notifications.</li>
-    </ul>
+    <div class="projects-grid">
+      <article class="project-card">
+        <h3>Site vitrine moderne</h3>
+        <p>Création d’un site responsive pour une start-up, avec animations CSS et optimisation SEO.</p>
+        <a href="#" class="btn-secondary">Voir le projet</a>
+      </article>
+      <article class="project-card">
+        <h3>Application météo</h3>
+        <p>Application JavaScript connectée à une API météo, avec interface animée et responsive.</p>
+        <a href="#" class="btn-secondary">Voir le projet</a>
+      </article>
+      <article class="project-card">
+        <h3>Formulaire interactif</h3>
+        <p>Formulaire de contact avec validation JS, feedback utilisateur et animations d’erreur.</p>
+        <a href="#" class="btn-secondary">Voir le projet</a>
+      </article>
+    </div>
   </section>
-  <section class="contact">
+
+  <section id="contact" class="section fade-in delay-3">
     <h2>Contact</h2>
-    <p>Email : <a href="mailto:amira@example.com">amira@example.com</a></p>
-    <p>GitHub : <a href="https://github.com/amirasalhi" target="_blank">github.com/amirasalhi</a></p>
+    <p>Envie de collaborer ou simplement dire bonjour ?</p>
+    <a href="mailto:amira@example.com" class="btn-primary">Envoyer un email</a>
   </section>
+
+  <footer>
+    <p>© 2025 Amira Salhi — Portfolio développé avec passion</p>
+  </footer>
+
+  <script>
+    // Animation à l'apparition avec Intersection Observer
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>

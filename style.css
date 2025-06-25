@@ -61,6 +61,7 @@ body {
   text-align: center;
   padding: 100px 20px;
   background: linear-gradient(to bottom right, #f0f4ff, #ffffff);
+  max-width: 100%;
 }
 
 .hero-content h1 {

@@ -8,14 +8,15 @@
     }, { threshold: 0.2 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-	
-document.addEventListener("DOMContentLoaded", function () {
+	document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contact-form");
   const toast = document.getElementById("toast");
 
   if (form && toast) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+
+      showToast("📤 Envoi en cours...");
 
       const data = new FormData(form);
 
@@ -25,18 +26,21 @@ document.addEventListener("DOMContentLoaded", function () {
         headers: { 'Accept': 'application/json' }
       }).then(response => {
         if (response.ok) {
-          showToast();
+          showToast("✅ Message envoyé avec succès !");
           form.reset();
         } else {
-          alert("Une erreur est survenue.");
+          showToast("❌ Une erreur est survenue.");
         }
+      }).catch(() => {
+        showToast("⚠️ Échec de l’envoi. Vérifiez votre connexion.");
       });
     });
   }
 
-  function showToast() {
+  function showToast(message) {
+    toast.textContent = message;
     toast.classList.add("show");
-    setTimeout(() => toast.classList.remove("show"), 4000);
+    clearTimeout(toast.timer);
+    toast.timer = setTimeout(() => toast.classList.remove("show"), 4000);
   }
 });
-

@@ -284,24 +284,23 @@ footer {
 .contact-form button:hover {
   background-color: #0056b3;
 }
-.popup {
+.toast {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #4caf50;
-  color: white;
+  bottom: 30px;
+  right: 30px;
+  background-color: #28a745;
+  color: #fff;
   padding: 1rem 2rem;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1000;
+  transform: translateY(30px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
 }
 
-.popup.visible {
+.toast.show {
   opacity: 1;
-}
-
-.popup.hidden {
-  display: none;
+  transform: translateY(0);
 }

@@ -9,11 +9,11 @@
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 	
-	document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contact-form");
-  const popup = document.getElementById("popup");
+  const toast = document.getElementById("toast");
 
-  if (form) {
+  if (form && toast) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
@@ -25,13 +25,18 @@
         headers: { 'Accept': 'application/json' }
       }).then(response => {
         if (response.ok) {
-          popup.classList.add("visible");
+          showToast();
           form.reset();
-          setTimeout(() => popup.classList.remove("visible"), 4000);
         } else {
           alert("Une erreur est survenue.");
         }
       });
     });
   }
+
+  function showToast() {
+    toast.classList.add("show");
+    setTimeout(() => toast.classList.remove("show"), 4000);
+  }
 });
+

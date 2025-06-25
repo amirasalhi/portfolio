@@ -1,14 +1,15 @@
-// Fade-in animation using Intersection Observer
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.2 });
+// Animation fade-in avec Intersection Observer
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Optionnel : arrêter d'observer après la 1ère apparition
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 // Toast & Form Logic
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contact-form");

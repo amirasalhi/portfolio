@@ -2,85 +2,437 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amira Salhi – Développeuse Web</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <script src="main.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amira Salhi - Portfolio Énergétique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #F5F5F5;
+      color: #1B1B3A;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul {
+      list-style: none;
+    }
+
+    /* Navbar */
+    header {
+      background: #1B1B3A;
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0; left: 0;
+      z-index: 999;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      animation: slideDown 0.8s ease forwards;
+    }
+    @keyframes slideDown {
+      from {transform: translateY(-100%);}
+      to {transform: translateY(0);}
+    }
+    .navbar {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: 'Rubik', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #FF3C38;
+      letter-spacing: 2px;
+      cursor: default;
+      user-select: none;
+      text-transform: uppercase;
+    }
+    .nav-links li {
+      display: inline-block;
+      margin-left: 2rem;
+    }
+    .nav-links a {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #F5F5F5;
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a:focus {
+      background-color: #FF3C38;
+      color: white;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #FF3C38 0%, #FFF275 100%);
+      color: #1B1B3A;
+      padding: 10rem 2rem 6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.3), transparent 70%);
+      animation: pulseGlow 6s ease-in-out infinite;
+      z-index: 0;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.05); opacity: 1; }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: auto;
+    }
+    .hero-content h1 {
+      font-family: 'Rubik', sans-serif;
+      font-weight: 700;
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      user-select: none;
+    }
+    .hero-content h1 span {
+      background: linear-gradient(45deg, #FFF275, #FF3C38);
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: textGlow 3s ease-in-out infinite alternate;
+      display: inline-block;
+    }
+    @keyframes textGlow {
+      0% {
+        filter: drop-shadow(0 0 3px #FF3C38);
+        transform: scale(1);
+      }
+      100% {
+        filter: drop-shadow(0 0 12px #FFF275);
+        transform: scale(1.05);
+      }
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
+      font-weight: 600;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .btn-primary {
+      background-color: #1B1B3A;
+      color: #FFF275;
+      padding: 0.9rem 3rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255,194,57,0.6);
+      transition: all 0.4s ease;
+      user-select: none;
+    }
+    .btn-primary:hover {
+      background-color: #FF3C38;
+      box-shadow: 0 6px 20px rgba(255,60,56,0.8);
+      transform: scale(1.1);
+      color: white;
+    }
+
+    /* Sections */
+    section {
+      max-width: 900px;
+      margin: 5rem auto;
+      padding: 0 2rem;
+    }
+    section h2 {
+      font-family: 'Rubik', sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
+      color: #FF3C38;
+      position: relative;
+      user-select: none;
+    }
+    section h2::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background-color: #FFF275;
+      margin-top: 6px;
+      border-radius: 4px;
+    }
+    section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    /* Skills grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.8rem;
+    }
+    .skill {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 20px rgba(255,60,56,0.15);
+      transition: transform 0.3s ease;
+      cursor: default;
+      user-select: none;
+    }
+    .skill:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(255,60,56,0.3);
+    }
+    .skill-icon {
+      font-size: 3rem;
+      color: #FF3C38;
+      margin-bottom: 1rem;
+      display: block;
+      user-select: none;
+    }
+    .skill h3 {
+      font-family: 'Rubik', sans-serif;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: #1B1B3A;
+    }
+    .skill p {
+      font-weight: 600;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    /* Projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(255,60,56,0.15);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    .project-card:hover {
+      box-shadow: 0 20px 40px rgba(255,60,56,0.3);
+      transform: translateY(-10px);
+    }
+    .project-card h3 {
+      font-family: 'Rubik', sans-serif;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: #FF3C38;
+    }
+    .project-card p {
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 1.4rem;
+    }
+    .btn-secondary {
+      background-color: #FFF275;
+      color: #1B1B3A;
+      padding: 0.7rem 1.8rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .btn-secondary:hover {
+      background-color: #FF3C38;
+      color: white;
+      box-shadow: 0 8px 20px rgba(255,60,56,0.7);
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: white;
+      padding: 2.5rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(255,60,56,0.15);
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.3rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      font-family: 'Open Sans', sans-serif;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      border: 2px solid #FF3C38;
+      border-radius: 8px;
+      outline: none;
+      resize: none;
+      transition: border-color 0.3s ease;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #FFF275;
+      box-shadow: 0 0 8px #FFF275;
+    }
+    .contact-form textarea {
+      min-height: 120px;
+    }
+    .contact-form button {
+      align-self: flex-start;
+      background-color: #FF3C38;
+      color: white;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      user-select: none;
+    }
+    .contact-form button:hover {
+      background-color: #FFF275;
+      color: #1B1B3A;
+      transform: scale(1.1);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #888;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      header .nav-links li {
+        margin-left: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">Amira</div>
-      <ul class="nav-links">
-        <li><a href="#about">À propos</a></li>
-        <li><a href="#skills">Compétences</a></li>
-        <li><a href="#projects">Projets</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Amira Salhi</h1>
-      <p>Développeuse web passionnée, spécialisée en design moderne, animation CSS & responsive design.</p>
-      <a href="#contact" class="btn-primary">Me contacter</a>
-    </div>
-  </section>
-
-  <section id="about" class="section">
-    <h2>À propos</h2>
-    <p>Je suis une développeuse web junior, passionnée par la création d'interfaces modernes, fluides et accessibles. Mon approche est centrée sur l'expérience utilisateur avec une forte sensibilité au design.</p>
-  </section>
-
-  <section id="skills" class="section">
-    <h2>Compétences</h2>
-    <ul>
-      <li>HTML5 / CSS3 / JavaScript</li>
-      <li>Responsive design & mobile-first</li>
-      <li>Animations CSS & transitions fluides</li>
-      <li>Structuration SEO & accessibilité</li>
+<header>
+  <nav class="navbar" aria-label="Navigation principale">
+    <div class="logo" aria-label="Logo Amira Salhi">AMIRA SALHI</div>
+    <ul class="nav-links">
+      <li><a href="#about" tabindex="0">À propos</a></li>
+      <li><a href="#skills" tabindex="0">Compétences</a></li>
+      <li><a href="#projects" tabindex="0">Projets</a></li>
+      <li><a href="#contact" tabindex="0">Contact</a></li>
     </ul>
-  </section>
+  </nav>
+</header>
 
-  <section id="projects" class="section">
-    <h2>Projets</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <h3>Radar60</h3>
-        <p>Plateforme anonyme de confessions développée avec animations CSS et optimisation SEO.</p>
-        <a href="https://www.radar60.com" class="btn-secondary" target="_blank">Voir</a>
-      </div>
-      <div class="project-card">
-        <h3>Application Météo</h3>
-        <p>Application connectée à une API avec design moderne & responsive.</p>
-        <a href="weather.html" class="btn-secondary">Voir</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <form id="contact-form" method="POST" action="https://formsubmit.co/amirasalhi1@gmail.com">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_autoresponse" value="Merci pour votre message ! Je vous répondrai rapidement.">
-
-      <input type="text" name="name" placeholder="Votre nom" required>
-      <input type="email" name="email" placeholder="Votre email" required>
-      <textarea name="message" placeholder="Votre message" required></textarea>
-      <button type="submit">Envoyer</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>© 2025 Amira Salhi — Tous droits réservés</p>
-  </footer>
-
-  <div id="toast" class="toast">
-    <div class="spinner"></div>
-    <span id="toast-message">Envoi en cours...</span>
+<section class="hero" role="banner" aria-label="Introduction">
+  <div class="hero-content">
+    <h1>Je suis <span>Amira Salhi</span></h1>
+    <p>Développeuse web junior passionnée, créative et énergique.</p>
+    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" aria-label="Contacter Amira">Me contacter</button>
   </div>
+</section>
+
+<section id="about" tabindex="-1" aria-label="À propos de Amira">
+  <h2>À propos</h2>
+  <p>Avec une passion pour le code et une approche dynamique, je crée des sites web modernes et performants. Mon objectif est d'offrir des expériences utilisateurs fluides avec un design énergique.</p>
+</section>
+
+<section id="skills" tabindex="-1" aria-label="Compétences techniques">
+  <h2>Compétences</h2>
+  <div class="skills-grid" role="list">
+    <article class="skill" role="listitem" tabindex="0" aria-label="HTML5">
+      <span class="skill-icon" aria-hidden="true">🌐</span>
+      <h3>HTML5</h3>
+      <p>Structure sémantique et accessible</p>
+    </article>
+    <article class="skill" role="listitem" tabindex="0" aria-label="CSS3">
+      <span class="skill-icon" aria-hidden="true">🎨</span>
+      <h3>CSS3</h3>
+      <p>Design moderne avec animations et responsive</p>
+    </article>
+    <article class="skill" role="listitem" tabindex="0" aria-label="JavaScript">
+      <span class="skill-icon" aria-hidden="true">⚡</span>
+      <h3>JavaScript</h3>
+      <p>Interactions dynamiques et animations</p>
+    </article>
+    <article class="skill" role="listitem" tabindex="0" aria-label="Git">
+      <span class="skill-icon" aria-hidden="true">🔧</span>
+      <h3>Git</h3>
+      <p>Gestion de versions et collaboration</p>
+    </article>
+  </div>
+</section>
+
+<section id="projects" tabindex="-1" aria-label="Projets réalisés">
+  <h2>Projets</h2>
+  <div class="projects-grid" role="list">
+    <article class="project-card" role="listitem" tabindex="0" aria-label="Projet Portfolio">
+      <h3>Portfolio Personnel</h3>
+      <p>Site moderne avec animations CSS, design responsive et contenu accessible.</p>
+      <button class="btn-secondary" onclick="alert('Visitez mon portfolio en ligne !')">Voir plus</button>
+    </article>
+    <article class="project-card" role="listitem" tabindex="0" aria-label="Projet Blog">
+      <h3>Blog Tech</h3>
+      <p>Blog dynamique avec gestion de contenu et commentaires.</p>
+      <button class="btn-secondary" onclick="alert('Projet en construction !')">Voir plus</button>
+    </article>
+  </div>
+</section>
+
+<section id="contact" tabindex="-1" aria-label="Formulaire de contact">
+  <h2>Contact</h2>
+  <form class="contact-form" onsubmit="submitForm(event)" aria-describedby="contact-desc">
+    <p id="contact-desc">Remplissez le formulaire pour me contacter directement.</p>
+    <input type="text" id="name" name="name" placeholder="Votre nom" required aria-required="true" />
+    <input type="email" id="email" name="email" placeholder="Votre email" required aria-required="true" />
+    <textarea id="message" name="message" placeholder="Votre message" required aria-required="true"></textarea>
+    <button type="submit" aria-label="Envoyer le message">Envoyer</button>
+  </form>
+</section>
+
+<footer>
+  &copy; 2025 Amira Salhi. Tous droits réservés.
+</footer>
+
+<script>
+  // Form submission simulation
+  function submitForm(e) {
+    e.preventDefault();
+    alert('Merci pour votre message ! Je vous répondrai dès que possible.');
+    e.target.reset();
+  }
+</script>
+
 </body>
 </html>

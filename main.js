@@ -1,24 +1,26 @@
-     // Animation à l'apparition avec Intersection Observer
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
+// Fade-in animation using Intersection Observer
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.2 });
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-	document.addEventListener("DOMContentLoaded", function () {
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Toast & Form Logic
+document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contact-form");
   const toast = document.getElementById("toast");
   const toastMessage = document.getElementById("toast-message");
-  const spinner = toast.querySelector(".spinner");
+  const spinner = document.querySelector(".spinner");
 
   if (form && toast) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      // Affiche toast avec spinner
+      // Affiche "Envoi en cours..." avec spinner
       showToast("Envoi en cours...", true);
 
       const data = new FormData(form);
@@ -30,26 +32,25 @@
       }).then(response => {
         if (response.ok) {
           form.reset();
-          showToast("✅ Message envoyé avec succès !");
+          showToast("Message envoyé avec succès !", false);
         } else {
-          showToast("❌ Une erreur est survenue.");
+          showToast("Erreur lors de l’envoi.", false);
         }
       }).catch(() => {
-        showToast("⚠️ Échec de l’envoi. Vérifiez votre connexion.");
+        showToast("Erreur réseau.", false);
       });
     });
   }
 
-  function showToast(message, loading = false) {
+  function showToast(message, isLoading = false) {
     toastMessage.textContent = message;
-    if (loading) {
-      spinner.style.display = "inline-block";
-    } else {
-      spinner.style.display = "none";
-    }
-
     toast.classList.add("show");
-    clearTimeout(toast.timer);
-    toast.timer = setTimeout(() => toast.classList.remove("show"), 4000);
+    spinner.style.display = isLoading ? "inline-block" : "none";
+
+    if (!isLoading) {
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 4000);
+    }
   }
 });

@@ -2,17 +2,16 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Amira Salhi - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amira Salhi – Développeuse Web</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script src="main.js" defer></script>
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <div class="logo">Amira Salhi</div>
+      <div class="logo">Amira</div>
       <ul class="nav-links">
         <li><a href="#about">À propos</a></li>
         <li><a href="#skills">Compétences</a></li>
@@ -24,94 +23,64 @@
 
   <section class="hero">
     <div class="hero-content">
-      <h1>Bonjour, je suis <span>Amira Salhi</span></h1>
-      <p>Développeuse web junior passionnée, spécialisée en design moderne, animations fluides et organisation experte.</p>
-      <a href="#contact" class="btn-primary">Contactez-moi</a>
+      <h1>Amira Salhi</h1>
+      <p>Développeuse web passionnée, spécialisée en design moderne, animation CSS & responsive design.</p>
+      <a href="#contact" class="btn-primary">Me contacter</a>
     </div>
   </section>
 
-  <section id="about" class="section fade-in">
-    <h2>À propos de moi</h2>
-    <p>
-      Forte d’une maîtrise avancée en HTML5, CSS3, et d’une grande sensibilité au design UX/UI, je crée des sites web à la fois
-      esthétiques, accessibles et performants. Je suis passionnée par l’animation fluide qui améliore l’expérience utilisateur.
-    </p>
+  <section id="about" class="section">
+    <h2>À propos</h2>
+    <p>Je suis une développeuse web junior, passionnée par la création d'interfaces modernes, fluides et accessibles. Mon approche est centrée sur l'expérience utilisateur avec une forte sensibilité au design.</p>
   </section>
 
-  <section id="skills" class="section fade-in delay-1">
+  <section id="skills" class="section">
     <h2>Compétences</h2>
-    <div class="skills-grid">
-      <div class="skill">
-        <i class="fas fa-code skill-icon"></i>
-        <h3>HTML5 & CSS3</h3>
-        <p>Utilisation avancée des balises sémantiques, flexbox, grid et animations CSS.</p>
-      </div>
-      <div class="skill">
-        <i class="fas fa-paint-brush skill-icon"></i>
-        <h3>Design Responsive</h3>
-        <p>Design mobile-first, adaptabilité parfaite sur tous types d’écrans.</p>
-      </div>
-      <div class="skill">
-        <i class="fas fa-magic skill-icon"></i>
-        <h3>Animations & Transitions</h3>
-        <p>Animations fluides en CSS, effets hover soignés, apparition progressive des éléments.</p>
-      </div>
-      <div class="skill">
-        <i class="fas fa-sitemap skill-icon"></i>
-        <h3>Organisation & SEO</h3>
-        <p>Structure claire du code, bonnes pratiques SEO et accessibilité.</p>
-      </div>
-    </div>
+    <ul>
+      <li>HTML5 / CSS3 / JavaScript</li>
+      <li>Responsive design & mobile-first</li>
+      <li>Animations CSS & transitions fluides</li>
+      <li>Structuration SEO & accessibilité</li>
+    </ul>
   </section>
 
-  <section id="projects" class="section fade-in delay-2">
+  <section id="projects" class="section">
     <h2>Projets</h2>
     <div class="projects-grid">
-      <article class="project-card">
-        <h3>Site de confessions anonymes </h3>
-        <p>Création d’un site responsive pour un particulier, avec animations CSS et optimisation SEO.</p>
-        <a href="https://www.radar60.com" class="btn-secondary">Voir le projet</a>
-      </article>
-      <article class="project-card">
-        <h3>Application météo</h3>
-        <p>Application JavaScript connectée à une API météo, avec interface animée et responsive.</p>
-        <a href="weather.html" class="btn-secondary">Voir le projet</a>
-      </article>
-      <article class="project-card">
-        <h3>Formulaire interactif</h3>
-        <p>Formulaire de contact avec validation JS, feedback utilisateur et animations d’erreur.</p>
-        <a href="#" class="btn-secondary">Voir le projet</a>
-      </article>
+      <div class="project-card">
+        <h3>Radar60</h3>
+        <p>Plateforme anonyme de confessions développée avec animations CSS et optimisation SEO.</p>
+        <a href="https://www.radar60.com" class="btn-secondary" target="_blank">Voir</a>
+      </div>
+      <div class="project-card">
+        <h3>Application Météo</h3>
+        <p>Application connectée à une API avec design moderne & responsive.</p>
+        <a href="weather.html" class="btn-secondary">Voir</a>
+      </div>
     </div>
   </section>
 
-  <section id="contact" class="section fade-in delay-3">
+  <section id="contact" class="section">
     <h2>Contact</h2>
-    <p>Envie de collaborer ou simplement dire bonjour ?</p>
-<form id="contact-form" class="contact-form" method="POST" action="https://formsubmit.co/amirasalhi1@gmail.com">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_template" value="table">
-  <input type="hidden" name="_autoresponse" value="Merci pour votre message, je vous répondrai rapidement.">
-  
-  <input type="text" name="name" placeholder="Votre nom" required>
-  <input type="email" name="email" placeholder="Votre email" required>
-  <textarea name="message" placeholder="Votre message" required></textarea>
-  
-  <button type="submit">Envoyer</button>
-</form>
+    <form id="contact-form" method="POST" action="https://formsubmit.co/amirasalhi1@gmail.com">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_autoresponse" value="Merci pour votre message ! Je vous répondrai rapidement.">
 
-<!-- Popup -->
-
-
+      <input type="text" name="name" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <textarea name="message" placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
   </section>
 
   <footer>
-    <p>© 2025 Amira Salhi — Portfolio développé avec passion</p>
+    <p>© 2025 Amira Salhi — Tous droits réservés</p>
   </footer>
 
-<div id="toast" class="toast">
-  <div class="spinner"></div>
-  <span id="toast-message">Envoi en cours...</span>
-</div>
+  <div id="toast" class="toast">
+    <div class="spinner"></div>
+    <span id="toast-message">Envoi en cours...</span>
+  </div>
 </body>
 </html>

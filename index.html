@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
 </head>
 <body>
   <header>
@@ -87,12 +88,22 @@
   <section id="contact" class="section fade-in delay-3">
     <h2>Contact</h2>
     <p>Envie de collaborer ou simplement dire bonjour ?</p>
-<form action="https://formsubmit.co/amirasalhi1@gmail.com" method="POST" class="contact-form">
-  <input type="text" name="name" placeholder="Votre nom" required />
-  <input type="email" name="email" placeholder="Votre email" required />
-  <textarea name="message" placeholder="Votre message..." rows="5" required></textarea>
-  <button type="submit" class="btn-primary">Envoyer</button>
+<form id="contact-form" method="POST" action="https://formsubmit.co/amirasalhi1@.com">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_autoresponse" value="Merci pour votre message, je vous répondrai rapidement.">
+  
+  <input type="text" name="name" placeholder="Votre nom" required>
+  <input type="email" name="email" placeholder="Votre email" required>
+  <textarea name="message" placeholder="Votre message" required></textarea>
+  
+  <button type="submit">Envoyer</button>
 </form>
+
+<!-- Popup -->
+<div id="popup" class="popup hidden">
+  <p>✅ Merci pour votre message !</p>
+</div>
 
   </section>
 
@@ -100,17 +111,6 @@
     <p>© 2025 Amira Salhi — Portfolio développé avec passion</p>
   </footer>
 
-  <script>
-    // Animation à l'apparition avec Intersection Observer
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>

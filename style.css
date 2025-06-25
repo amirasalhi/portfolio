@@ -284,3 +284,23 @@ footer {
 .contact-form button:hover {
   background-color: #0056b3;
 }
+.popup {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #4CAF50;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.popup.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.hidden {
+  display: none;
+}

@@ -208,7 +208,7 @@ h2 {
   font-size: 3rem;
   display: block;
   margin-bottom: 0.5rem;
-  filter: drop-shadow(0 0 5px #d14fff);
+  filter: drop-shadow(0 0 2px #d14fff);
 }
 
 .skill h3 {
@@ -224,6 +224,10 @@ h2 {
   font-weight: 400;
   color: #d9c9ffcc;
 }
+.skill img {
+ width:width: 100px;
+}
+
 
 /* ===== Projects grid ===== */
 .projects-grid {

@@ -120,7 +120,7 @@ body {
 }
 
 .btn-primary {
-  background: #d14fff;
+  background: #ff66cc;
   border: none;
   padding: 0.8rem 2.5rem;
   color: #fff;
@@ -134,7 +134,7 @@ body {
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background: #ff66cc;
+  background: #d14fff;
   box-shadow: 0 0 20px #ff66cc;
   outline: none;
 }
@@ -225,7 +225,7 @@ h2 {
   color: #d9c9ffcc;
 }
 .skill img {
- width:width: 100px;
+ width: 100px;
 }
 
 

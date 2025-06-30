@@ -16,41 +16,41 @@ document.addEventListener("DOMContentLoaded", function () {
   const toast = document.getElementById("toast");
   const toastMessage = document.getElementById("toast-message");
 
-form.addEventListener("submit", async function (e) {
-  e.preventDefault();
+ form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-  toastMessage.textContent = "Envoi en cours...";
-  toast.classList.add("show");
+    toastMessage.textContent = "Envoi en cours...";
+    toast.classList.add("show");
 
-  const formData = new FormData(form);
+    const formData = new FormData(form);
 
-  try {
-    const response = await fetch("https://formsubmit.co/amirasalhi1@gmail.com", {
-      method: "POST",
-      headers: {
-        'Accept': 'application/json'
-      },
-      body: formData
-    });
+    try {
+      const response = await fetch("https://formsubmit.co/amirasalhi1@gmail.com", {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
 
-    if (response.ok) {
-      toastMessage.textContent = "Message envoyé avec succès !";
-      form.reset();
-    } else {
-      const text = await response.text();
-      console.error("Erreur :", text);
-      toastMessage.textContent = "Erreur lors de l’envoi.";
+      if (response.ok) {
+        toastMessage.textContent = "Message envoyé avec succès !";
+        form.reset();
+      } else {
+        const text = await response.text();
+        console.error("Erreur :", text);
+        toastMessage.textContent = "Erreur lors de l’envoi.";
+      }
+    } catch (error) {
+      toastMessage.textContent = "Erreur réseau.";
+      console.error("Erreur réseau :", error);
     }
-  } catch (error) {
-    toastMessage.textContent = "Erreur réseau.";
-    console.error("Erreur réseau :", error);
-  }
 
-  setTimeout(() => {
-    toast.classList.remove("show");
-  }, 4000);
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 4000);
+  });
 });
-
 
 // Simple particle animation for hero background
 

@@ -12,49 +12,47 @@
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 // Toast & Form Logic
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contact-form");
+  const form = document.getElementById("contactForm");
   const toast = document.getElementById("toast");
   const toastMessage = document.getElementById("toast-message");
-  const spinner = document.querySelector(".spinner");
 
-  if (form && toast) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-      // Affiche "Envoi en cours..." avec spinner
-      showToast("Envoi en cours...", true);
+    toast.style.display = "flex";
+    toastMessage.textContent = "Envoi en cours...";
 
-      const data = new FormData(form);
+    const formData = new FormData(form);
 
-      fetch(form.action, {
+    try {
+      const response = await fetch("https://formsubmit.co/amirasalhi1@gmail.com", {
         method: "POST",
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          form.reset();
-          showToast("Message envoyé avec succès !", false);
-        } else {
-          showToast("Erreur lors de l’envoi.", false);
-        }
-      }).catch(() => {
-        showToast("Erreur réseau.", false);
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
       });
-    });
-  }
 
-  function showToast(message, isLoading = false) {
-    toastMessage.textContent = message;
-    toast.classList.add("show");
-    spinner.style.display = isLoading ? "inline-block" : "none";
+      const result = await response.json(); // pour afficher les erreurs
+      console.log(result);
 
-    if (!isLoading) {
-      setTimeout(() => {
-        toast.classList.remove("show");
-      }, 4000);
+      if (response.ok) {
+        toastMessage.textContent = "Message envoyé avec succès !";
+        form.reset();
+      } else {
+        toastMessage.textContent = "Erreur lors de l’envoi.";
+      }
+    } catch (error) {
+      console.error(error);
+      toastMessage.textContent = "Erreur réseau.";
     }
-  }
+
+    setTimeout(() => {
+      toast.style.display = "none";
+    }, 4000);
+  });
 });
+
 // Simple particle animation for hero background
 
 const canvas = document.createElement('canvas');
@@ -117,43 +115,4 @@ resizeCanvas();
 initParticles();
 drawParticles();
 
-//formulaire de contact et ses popups
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contactForm");
-  const toast = document.getElementById("toast");
-  const toastMessage = document.getElementById("toast-message");
 
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault(); // Empêche la redirection
-
-    // Affiche le toast
-    toast.style.display = "flex";
-    toastMessage.textContent = "Envoi en cours...";
-
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch("https://formsubmit.co/amirasalhi1@gmail.com", {
-        method: "POST",
-        headers: {
-          'Accept': 'application/json'
-        },
-        body: formData
-      });
-
-      if (response.ok) {
-        toastMessage.textContent = "Message envoyé avec succès !";
-        form.reset();
-      } else {
-        toastMessage.textContent = "Erreur lors de l’envoi.";
-      }
-    } catch (error) {
-      toastMessage.textContent = "Erreur réseau.";
-    }
-
-    // Cache le toast après 4 secondes
-    setTimeout(() => {
-      toast.style.display = "none";
-    }, 4000);
-  });
-});

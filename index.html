@@ -33,7 +33,7 @@
 
 <section id="about" tabindex="-1" class="fade-in" aria-label="À propos de Amira">
   <h2>À propos</h2>
-  <p>Passionnée par le développement front-end, je conçois des interfaces web modernes, fluides et soignées. </br>J’attache une grande importance à la clarté du design, à l’expérience utilisateur, ainsi qu’à la qualité du code.</br>
+  <p>Passionnée par le développement front-end, je conçois des interfaces web modernes, fluides et soignées. J’attache une grande importance à la clarté du design, à l’expérience utilisateur, ainsi qu’à la qualité du code.</br>
 
 Ma démarche : allier esthétique, performance et accessibilité, en respectant les bonnes pratiques du développement moderne (HTML5, CSS3, JavaScript, animations, UI/UX).</br>
 
@@ -95,25 +95,28 @@ Ce portfolio reflète mon style, mes compétences et ma volonté constante de pr
     <article class="project-card" role="listitem" tabindex="0" aria-label="Projet Portfolio">
       <h3>Site de confessions</h3>
       <p>Création d’un site responsive pour un particulier, avec animations CSS et optimisation SEO.</p>
-      <button class="btn-secondary" onclick="window.open('www.radra60.com')">Voir plus </button>
+      <a class="btn-secondary" href="www.radra60.com">Voir plus </a>
     </article>
     <article class="project-card" role="listitem" tabindex="0" aria-label="Projet Blog">
       <h3>Site de Meteo</h3>
       <p>Blog dynamique avec gestion de contenu et commentaires.</p>
-      <button class="btn-secondary" onclick="window.open('weather/weather.html')">Voir plus</button>
+      <a class="btn-secondary" href="weather/index.html">Voir plus</a>
     </article>
   </div>
 </section>
 
 <section id="contact" tabindex="-1" class="fade-in" aria-label="Formulaire de contact">
   <h2>Contact</h2>
-  <form class="contact-form" aria-describedby="contact-desc" id="contactForm"  method="POST" ">
-    <p id="contact-desc">Remplissez le formulaire pour me contacter directement.</p>
-    <input type="text" id="name" name="name" placeholder="Votre nom" required aria-required="true" />
-    <input type="email" id="email" name="email" placeholder="Votre email" required aria-required="true" />
-    <textarea id="message" name="message" placeholder="Votre message" required aria-required="true"></textarea>
-    <button type="submit" aria-label="Envoyer le message">Envoyer</button>
-  </form>
+		<form class="contact-form" aria-describedby="contact-desc" id="contactForm" method="POST">
+		  <input type="hidden" name="_captcha" value="false">
+		  <input type="hidden" name="_template" value="table">
+
+		  <p id="contact-desc">Remplissez le formulaire pour me contacter directement.</p>
+		  <input type="text" id="name" name="name" placeholder="Votre nom" required aria-required="true" />
+		  <input type="email" id="email" name="email" placeholder="Votre email" required aria-required="true" />
+		  <textarea id="message" name="message" placeholder="Votre message" required aria-required="true"></textarea>
+		  <button type="submit" aria-label="Envoyer le message">Envoyer</button>
+		</form>
 </section>
 
 <footer>

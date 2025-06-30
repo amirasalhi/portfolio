@@ -259,11 +259,11 @@ h2 {
 }
 
 .project-card h3 {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   margin-bottom: 1rem;
   font-weight: 700;
   color: #ff66cc;
-  text-shadow: 0 0 10px #ff66ccbb;
+  text-shadow: 0 0 8px #ff66ccbb;
 }
 
 .project-card p {
@@ -382,26 +382,39 @@ button:focus,
 }
  /* toast */
  
-.toast {
+#toast {
+  display: none; /* initialement caché */
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: #333;
+  bottom: 20px;
+  right: 20px;
+  background-color: #323232;
   color: white;
-  padding: 1rem 1.5rem;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  display: flex;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 9999;
+  font-family: 'Open Sans', sans-serif;
   align-items: center;
   gap: 10px;
-  z-index: 9999;
-  pointer-events: none;
 }
 
-.toast.show {
+#toast {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#toast.show {
   opacity: 1;
-  transform: translateY(0);
+}
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid white;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }

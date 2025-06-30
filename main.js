@@ -19,9 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    toast.style.display = "flex";
-    toastMessage.textContent = "Envoi en cours...";
-
+	toastMessage.textContent = "Envoi en cours...";
+	toast.classList.add("show");
+	
     const formData = new FormData(form);
 
 		try {

@@ -401,7 +401,7 @@ button:focus,
   transition: opacity 0.4s ease;
 }
 
-.toast.show {
+#toast.show {
   opacity: 1;
   pointer-events: auto;
 }

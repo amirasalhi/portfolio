@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Application météo - Amira Salhi</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <main class="weather-container" role="main" aria-label="Application météo avancée">
+    <h1 class="app-title">Météo Du Jour</h1>
+<button id="toggleTheme" class="theme-toggle" aria-label="Changer le thème (sombre/clair)">🌙</button>
+
+    <form id="weatherForm" class="weather-form" aria-label="Formulaire de recherche météo">
+      <input type="text" id="cityInput" name="city" placeholder="Entrez une ville" required autocomplete="off" />
+      <button type="submit" aria-label="Rechercher la météo">🔍</button>
+    </form>
+
+    <div id="error" class="error-message" role="alert" aria-live="assertive"></div>
+
+    <section id="weatherResult" class="weather-result" aria-live="polite" aria-atomic="true" hidden>
+      <div class="city-name" id="cityName"></div>
+      <img src="" alt="Icône météo" id="weatherIcon" class="weather-icon" />
+      <div class="weather-desc" id="weatherDesc"></div>
+      <div class="temp" id="temperature"></div>
+      <div class="details-grid" id="detailsGrid"></div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

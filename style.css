@@ -386,7 +386,7 @@ button:focus,
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #323232;
+  background-color: rgb(255, 102, 204);
   color: white;
   padding: 16px 24px;
   border-radius: 8px;

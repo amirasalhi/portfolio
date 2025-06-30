@@ -382,8 +382,7 @@ button:focus,
 }
  /* toast */
  
-#toast {
-  display: none; /* initialement caché */
+.toast {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -394,18 +393,19 @@ button:focus,
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   z-index: 9999;
   font-family: 'Open Sans', sans-serif;
+  display: flex;
   align-items: center;
   gap: 10px;
-}
-
-#toast {
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.4s ease;
 }
 
-#toast.show {
+.toast.show {
   opacity: 1;
+  pointer-events: auto;
 }
+
 .spinner {
   width: 16px;
   height: 16px;
@@ -417,4 +417,37 @@ button:focus,
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+@media only screen and (max-width: 600px) {
+	.nav-links a{
+		font-size: 0.8rem;
+	}
+	.navbar {
+    display: contents;
+	
+	}
+	h1{
+		font-size: 2.5rem;
+	}
+	h2{
+		font-size: 1.8rem;
+	}
+	.btn-primary {
+
+    padding: 0.4rem 2rem;
+    font-size: 1rem;
+  
+}
+.skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(122px, 1fr));
+    gap: 1.8rem;
+}
+.project-card h3 {
+    font-size: 1.5rem;
+    color: white;
+	text-shadow: 0 0 2px white;
+}
+.project-card p{
+	font-size: 1rem;
+}
 }

@@ -16,42 +16,41 @@ document.addEventListener("DOMContentLoaded", function () {
   const toast = document.getElementById("toast");
   const toastMessage = document.getElementById("toast-message");
 
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-	toastMessage.textContent = "Envoi en cours...";
-	toast.classList.add("show");
-	
-    const formData = new FormData(form);
+  toastMessage.textContent = "Envoi en cours...";
+  toast.classList.add("show");
 
-		try {
-		  const response = await fetch("https://formsubmit.co/amirasalhi1@gmail.com", {
-			method: "POST",
-			headers: {
-			  'Accept': 'application/json'
-			},
-			body: formData
-		  });
+  const formData = new FormData(form);
 
-		  if (response.ok) {
-			toastMessage.textContent = "Message envoyé avec succès !";
-			form.reset();
-		  } else {
-			// Essaye de lire le texte brut de l'erreur (HTML)
-			const text = await response.text();
-			console.error("Réponse non JSON :", text);
-			toastMessage.textContent = "Erreur lors de l’envoi.";
-		  }
-		} catch (error) {
-		  toastMessage.textContent = "Erreur réseau.";
-		  console.error("Erreur réseau :", error);
-		}
+  try {
+    const response = await fetch("https://formsubmit.co/amirasalhi1@gmail.com", {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: formData
+    });
 
-    setTimeout(() => {
-      toast.style.display = "none";
-    }, 4000);
-  });
+    if (response.ok) {
+      toastMessage.textContent = "Message envoyé avec succès !";
+      form.reset();
+    } else {
+      const text = await response.text();
+      console.error("Erreur :", text);
+      toastMessage.textContent = "Erreur lors de l’envoi.";
+    }
+  } catch (error) {
+    toastMessage.textContent = "Erreur réseau.";
+    console.error("Erreur réseau :", error);
+  }
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 4000);
 });
+
 
 // Simple particle animation for hero background
 

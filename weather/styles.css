@@ -6,19 +6,44 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+:root {
+  --bg-color: #f5f5f5;
+  --text-color: #1a1a1a;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --primary: #764ba2;
+  --input-bg: #fff;
+  --btn-bg: #9f7aea;
+  --error-color: #e74c3c;
+  --title-color: #1a1a1a; /* Couleur du titre en mode clair */
+  --title-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode {
+  --bg-color: #1e1e2f;
+  --text-color: #f5f5f5;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --primary: #9f7aea;
+  --input-bg: #2a2a3d;
+  --btn-bg: #764ba2;
+  --error-color: #ff7675;
+  --title-color: #fff; /* Couleur du titre en mode nuit */
+  --title-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
 body {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.4s ease, color 0.4s ease;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  color: #fff;
 }
 
 /* Container */
 .weather-container {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--card-bg);
   border-radius: 20px;
   max-width: 400px;
   width: 100%;
@@ -38,25 +63,25 @@ body {
   }
 }
 
+/* Titre principal */
 .app-title {
+  color: var(--title-color);
+  text-shadow: var(--title-shadow);
   text-align: center;
   margin-bottom: 1.5rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 1.8rem;
-  color: darkblue;
-  text-shadow: 0 0 8px rgba(255,255,255,0.3);
 }
-.app-title.dark-mode{
-	color:white;
-}
+
 /* Form */
 .weather-form {
   display: flex;
   gap: 0.8rem;
   margin-bottom: 1.5rem;
 }
+
 .weather-form input[type="text"] {
   flex: 1;
   padding: 0.7rem 1rem;
@@ -65,12 +90,16 @@ body {
   font-size: 1rem;
   outline: none;
   transition: box-shadow 0.3s ease;
+  background-color: var(--input-bg);
+  color: var(--text-color);
 }
+
 .weather-form input[type="text"]:focus {
   box-shadow: 0 0 8px #9f7aea;
 }
+
 .weather-form button {
-  background: #9f7aea;
+  background-color: var(--btn-bg);
   border: none;
   border-radius: 50%;
   width: 44px;
@@ -84,6 +113,7 @@ body {
   justify-content: center;
   transition: background-color 0.3s ease;
 }
+
 .weather-form button:hover {
   background: #7b57c8;
 }
@@ -95,26 +125,31 @@ body {
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
 .weather-result.show {
   opacity: 1;
   transform: translateY(0);
 }
+
 .city-name {
   font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 0.3rem;
   text-shadow: 0 0 5px #fff;
 }
+
 .weather-icon {
   width: 100px;
   height: 100px;
   margin: 0 auto 1rem auto;
   animation: fadeInIcon 1.2s ease forwards;
 }
+
 @keyframes fadeInIcon {
   from { opacity: 0; transform: scale(0.7); }
   to { opacity: 1; transform: scale(1); }
 }
+
 .weather-desc {
   font-size: 1.2rem;
   font-style: italic;
@@ -122,6 +157,7 @@ body {
   text-transform: capitalize;
   text-shadow: 0 0 3px rgba(255,255,255,0.7);
 }
+
 .temp {
   font-size: 3rem;
   font-weight: 700;
@@ -136,6 +172,7 @@ body {
   gap: 1rem;
   font-size: 1rem;
 }
+
 .detail-item {
   background: rgba(255, 255, 255, 0.15);
   padding: 1rem;
@@ -146,9 +183,11 @@ body {
   gap: 0.6rem;
   transition: background-color 0.3s ease;
 }
+
 .detail-item:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
+
 .detail-icon {
   font-size: 1.5rem;
   color: #d1c4e9;
@@ -156,51 +195,14 @@ body {
 
 /* Error */
 .error-message {
-  color: #ffb3b3;
+  color: var(--error-color);
   font-weight: 600;
   margin-top: 1rem;
   text-align: center;
-  text-shadow: 0 0 3px #ff8080;
-}
-:root {
-  --bg-color: #f5f5f5;
-  --text-color: #1a1a1a;
-  --card-bg: rgba(255, 255, 255, 0.9);
-  --primary: #764ba2;
-  --input-bg: #fff;
-  --btn-bg: #9f7aea;
-  --error-color: #e74c3c;
+  text-shadow: 0 0 3px var(--error-color);
 }
 
-body.dark-mode {
-  --bg-color: #1e1e2f;
-  --text-color: #f5f5f5;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --primary: #9f7aea;
-  --input-bg: #2a2a3d;
-  --btn-bg: #764ba2;
-  --error-color: #ff7675;
-}
-
-body {
-  background: var(--bg-color);
-  color: var(--text-color);
-  transition: background 0.4s ease, color 0.4s ease;
-}
-
-.weather-container {
-  background: var(--card-bg);
-}
-
-.weather-form input[type="text"] {
-  background-color: var(--input-bg);
-  color: var(--text-color);
-}
-
-.weather-form button {
-  background-color: var(--btn-bg);
-}
-
+/* Bouton de changement de thème */
 .theme-toggle {
   position: absolute;
   top: 20px;

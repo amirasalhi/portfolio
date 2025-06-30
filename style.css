@@ -25,31 +25,6 @@ body {
   margin-left: 1.5rem;
 }
 
-/* Style du select Google Translate */
-#google_translate_element select {
-  background: rgba(255 255 255 / 0.1);
-  color: #f0e7ff;
-  border: 1.5px solid #d14fff;
-  border-radius: 12px;
-  padding: 3px 10px;
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  outline-offset: 2px;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  box-shadow: 0 0 6px #d14fff88;
-}
-
-/* Hover et focus du select */
-#google_translate_element select:hover,
-#google_translate_element select:focus {
-  background: rgba(209 79 255 / 0.2);
-  border-color: #ff66cc;
-  box-shadow: 0 0 12px #ff66cccc;
-  color: #ff66cc;
-  outline: none;
-}
 
 
 /* Pour que la liste et le widget Google Translate soient côte à côte */
@@ -460,7 +435,7 @@ button:focus,
 
 @media only screen and (max-width: 600px) {
 	.nav-links a{
-		font-size: 0.8rem;
+		font-size: 1rem;
 	}
 	.navbar {
     display: contents;
@@ -491,6 +466,60 @@ button:focus,
 	font-size: 1rem;
 }
 }
-#google_translate_element{
-	
+/* Container contact : 2 colonnes, gap et responsive */
+.contact-container {
+  display: flex;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.contact-info {
+  flex: 1;
+  background: rgba(30, 10, 60, 0.7);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 0 10px #d14fff88;
+  color: #f0e7ff;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.contact-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #ff66cc;
+  text-shadow: 0 0 8px #ff66ccaa;
+}
+
+.contact-info p {
+  margin-bottom: 1rem;
+}
+
+.contact-info a {
+  color: #ff66cc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover,
+.contact-info a:focus {
+  color: #d14fff;
+  outline: none;
+}
+
+/* Formulaire à droite prend plus de place */
+.contact-form {
+  flex: 2;
+}
+
+/* Responsive : empile en colonne sur petits écrans */
+@media (max-width: 700px) {
+  .contact-container {
+    flex-direction: column;
+  }
+  .contact-info {
+    margin-bottom: 2rem;
+  }
 }

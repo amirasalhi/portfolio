@@ -16,8 +16,58 @@ body {
 
 /* Import Google Font Rajdhani - ajoute dans ton <head> */
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
+/* Conteneur traduction dans la navbar */
+#google_translate_element {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  margin-left: 1.5rem;
+}
 
+/* Style du select Google Translate */
+#google_translate_element select {
+  background: rgba(255 255 255 / 0.1);
+  color: #f0e7ff;
+  border: 1.5px solid #d14fff;
+  border-radius: 12px;
+  padding: 3px 10px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  outline-offset: 2px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 0 6px #d14fff88;
+}
+
+/* Hover et focus du select */
+#google_translate_element select:hover,
+#google_translate_element select:focus {
+  background: rgba(209 79 255 / 0.2);
+  border-color: #ff66cc;
+  box-shadow: 0 0 12px #ff66cccc;
+  color: #ff66cc;
+  outline: none;
+}
+
+
+/* Pour que la liste et le widget Google Translate soient côte à côte */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Supprimer la bannière Google Translate gênante */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
 /* ===== Navbar ===== */
+/* Ajuster la navbar pour que le contenu soit bien aligné */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -28,6 +78,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
+  gap: 1rem;
 }
 
 .logo {
@@ -439,4 +490,7 @@ button:focus,
 .project-card p{
 	font-size: 1rem;
 }
+}
+#google_translate_element{
+	
 }

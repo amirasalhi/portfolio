@@ -34,7 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const response = await fetch(`https://wttr.in/${encodeURIComponent(city)}?format=j1`);
-      if (!response.ok) throw new Error("Ville introuvable ou problème réseau.");
+      const contentType = response.headers.get("content-type");
+
+      if (!response.ok || !contentType || !contentType.includes("application/json")) {
+        // lire le texte brut en cas d'erreur
+        const errorText = await response.text();
+        throw new Error("Erreur : " + errorText);
+      }
 
       const data = await response.json();
       const current = data.current_condition[0];
@@ -64,7 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
       errorDiv.textContent = err.message;
     }
   });
-    const toggleBtn = document.getElementById("toggleTheme");
+
+  const toggleBtn = document.getElementById("toggleTheme");
 
   // Appliquer le thème au chargement
   const savedTheme = localStorage.getItem("theme");
@@ -79,5 +86,4 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleBtn.textContent = isDark ? "☀️" : "🌙";
     localStorage.setItem("theme", isDark ? "dark" : "light");
   });
-
 });

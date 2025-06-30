@@ -373,7 +373,7 @@ footer {
 }
 
 /* ===== Accessible focus ===== */
-a:focus,
+
 button:focus,
 .skill:focus,
 .project-card:focus {
@@ -401,23 +401,12 @@ button:focus,
   transition: opacity 0.4s ease;
 }
 
-#toast.show {
+.toast.show {
   opacity: 1;
   pointer-events: auto;
 }
 
-.spinner {
-  width: 16px;
-  height: 16px;
-  border: 2px solid white;
-  border-top: 2px solid transparent;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
 @media only screen and (max-width: 600px) {
 	.nav-links a{
 		font-size: 0.8rem;
@@ -427,7 +416,7 @@ button:focus,
 	
 	}
 	h1{
-		font-size: 2.5rem;
+		font-size: 2rem;
 	}
 	h2{
 		font-size: 1.8rem;

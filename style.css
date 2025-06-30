@@ -373,7 +373,7 @@ footer {
 }
 
 /* ===== Accessible focus ===== */
-
+a:focus,
 button:focus,
 .skill:focus,
 .project-card:focus {

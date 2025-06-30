@@ -80,7 +80,7 @@ body {
 .hero {
 	 
     position: relative;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -164,7 +164,11 @@ h2 {
   color: #ff66cc;
   text-shadow: 0 0 8px #ff66ccaa;
 }
-
+#about p{
+	
+	text-align: justify;
+    font-size: 1.2em;
+}
 /* Fade-in animation */
 .fade-in {
   opacity: 0;
@@ -199,8 +203,8 @@ h2 {
 
 .skill:hover,
 .skill:focus {
-  transform: translateY(-8px);
-  box-shadow: 0 0 30px #ff66ccaa;
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #ff66ccaa;
   outline: none;
 }
 

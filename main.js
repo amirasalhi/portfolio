@@ -116,3 +116,44 @@ window.addEventListener('resize', () => {
 resizeCanvas();
 initParticles();
 drawParticles();
+
+//formulaire de contact et ses popups
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contactForm");
+  const toast = document.getElementById("toast");
+  const toastMessage = document.getElementById("toast-message");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault(); // Empêche la redirection
+
+    // Affiche le toast
+    toast.style.display = "flex";
+    toastMessage.textContent = "Envoi en cours...";
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formsubmit.co/amirasalhi1@gmail.com", {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        toastMessage.textContent = "Message envoyé avec succès !";
+        form.reset();
+      } else {
+        toastMessage.textContent = "Erreur lors de l’envoi.";
+      }
+    } catch (error) {
+      toastMessage.textContent = "Erreur réseau.";
+    }
+
+    // Cache le toast après 4 secondes
+    setTimeout(() => {
+      toast.style.display = "none";
+    }, 4000);
+  });
+});

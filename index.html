@@ -33,14 +33,11 @@
 
 <section id="about" tabindex="-1" class="fade-in" aria-label="À propos de Amira">
   <h2>À propos</h2>
-  <p>passionnée par la création d’expériences numériques modernes, fluides et impactantes.</br> Bien que je sois en début de carrière, je conçois mes projets avec la rigueur, le souci du détail et l'esthétique d'une développeuse expérimentée.
+  <p>Passionnée par le développement front-end, je conçois des interfaces web modernes, fluides et soignées. J’attache une grande importance à la clarté du design, à l’expérience utilisateur, ainsi qu’à la qualité du code.</br>
 
-Ma spécialité : transformer des idées en interfaces claires, dynamiques et responsives, en utilisant les bonnes pratiques du développement moderne (HTML5, CSS3, JavaScript, animations, design UI/UX).
-J’accorde une attention particulière à l’accessibilité, aux performances et à l’élégance du code comme du visuel.
+Ma démarche : allier esthétique, performance et accessibilité, en respectant les bonnes pratiques du développement moderne (HTML5, CSS3, JavaScript, animations, UI/UX).</br>
 
-Je conçois chaque site comme une vitrine interactive : structurée, engageante et pensée pour marquer les esprits.
-
-Ce portfolio est le reflet de mon univers créatif et de mes compétences techniques. Il évoluera au fil de mes projets, de mes défis et de mon apprentissage constant.</p>
+Ce portfolio reflète mon style, mes compétences et ma volonté constante de progresser à travers des projets concrets et engageants.</p>
 </section>
 
 <section id="skills" tabindex="-1" class="fade-in" aria-label="Compétences techniques">
@@ -96,12 +93,12 @@ Ce portfolio est le reflet de mon univers créatif et de mes compétences techni
   <h2>Projets</h2>
   <div class="projects-grid" role="list">
     <article class="project-card" role="listitem" tabindex="0" aria-label="Projet Portfolio">
-      <h3>Portfolio Personnel</h3>
-      <p>Site moderne avec animations CSS, design responsive et contenu accessible.</p>
-      <button class="btn-secondary" onclick="alert('Visitez mon portfolio en ligne !')">Voir plus</button>
+      <h3>Site de confessions</h3>
+      <p>Création d’un site responsive pour un particulier, avec animations CSS et optimisation SEO.</p>
+      <button class="btn-secondary" href="www.radra60.com">Voir le projet </button>
     </article>
     <article class="project-card" role="listitem" tabindex="0" aria-label="Projet Blog">
-      <h3>Blog Tech</h3>
+      <h3>Site de Meteo</h3>
       <p>Blog dynamique avec gestion de contenu et commentaires.</p>
       <button class="btn-secondary" onclick="alert('Projet en construction !')">Voir plus</button>
     </article>
@@ -110,7 +107,7 @@ Ce portfolio est le reflet de mon univers créatif et de mes compétences techni
 
 <section id="contact" tabindex="-1" class="fade-in" aria-label="Formulaire de contact">
   <h2>Contact</h2>
-  <form class="contact-form" aria-describedby="contact-desc" class="contact-form" method="POST" action="https://formsubmit.co/amirasalhi1@gmail.com">
+  <form class="contact-form" aria-describedby="contact-desc" id="contactForm"  method="POST" ">
     <p id="contact-desc">Remplissez le formulaire pour me contacter directement.</p>
     <input type="text" id="name" name="name" placeholder="Votre nom" required aria-required="true" />
     <input type="email" id="email" name="email" placeholder="Votre email" required aria-required="true" />
@@ -122,6 +119,9 @@ Ce portfolio est le reflet de mon univers créatif et de mes compétences techni
 <footer>
   &copy; 2025 Amira Salhi. Tous droits réservés.
 </footer>
-
+<div id="toast" class="toast">
+  <div class="spinner"></div>
+  <span id="toast-message">Envoi en cours...</span>
+</div>
 </body>
 </html>

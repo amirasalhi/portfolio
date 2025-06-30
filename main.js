@@ -24,28 +24,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const formData = new FormData(form);
 
-    try {
-      const response = await fetch("https://formsubmit.co/amirasalhi1@gmail.com", {
-        method: "POST",
-        headers: {
-          'Accept': 'application/json'
-        },
-        body: formData
-      });
+		try {
+		  const response = await fetch("https://formsubmit.co/amirasalhi1@gmail.com", {
+			method: "POST",
+			headers: {
+			  'Accept': 'application/json'
+			},
+			body: formData
+		  });
 
-      const result = await response.json(); // pour afficher les erreurs
-      console.log(result);
-
-      if (response.ok) {
-        toastMessage.textContent = "Message envoyé avec succès !";
-        form.reset();
-      } else {
-        toastMessage.textContent = "Erreur lors de l’envoi.";
-      }
-    } catch (error) {
-      console.error(error);
-      toastMessage.textContent = "Erreur réseau.";
-    }
+		  if (response.ok) {
+			toastMessage.textContent = "Message envoyé avec succès !";
+			form.reset();
+		  } else {
+			// Essaye de lire le texte brut de l'erreur (HTML)
+			const text = await response.text();
+			console.error("Réponse non JSON :", text);
+			toastMessage.textContent = "Erreur lors de l’envoi.";
+		  }
+		} catch (error) {
+		  toastMessage.textContent = "Erreur réseau.";
+		  console.error("Erreur réseau :", error);
+		}
 
     setTimeout(() => {
       toast.style.display = "none";

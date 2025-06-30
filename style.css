@@ -215,7 +215,7 @@ h2 {
 }
 
 .skill h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: #ff66cc;
   text-shadow: 0 0 8px #ff66ccaa;
@@ -275,16 +275,17 @@ h2 {
 }
 
 .btn-secondary {
-  align-self: flex-start;
-  padding: 0.6rem 1.8rem;
-  font-weight: 600;
-  background: #3a0a65;
-  color: #ff66cc;
-  border: 2px solid #ff66cc;
-  border-radius: 30px;
-  cursor: pointer;
-  box-shadow: 0 0 8px #ff66ccaa;
-  transition: all 0.3s ease;
+	align-self: flex-start;
+    padding: 0.6rem 1.8rem;
+    font-weight: 600;
+    background: #3a0a65;
+    color: #ff66cc;
+    border: 1px solid #ff66cc;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 0 8px #ff66ccaa;
+    transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .btn-secondary:hover,

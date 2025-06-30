@@ -329,6 +329,7 @@ h2 {
   gap: 1rem;
   max-width: 500px;
   margin-top: 1rem;
+   flex: 2;
 }
 
 .contact-form input,
@@ -477,20 +478,19 @@ button:focus,
 
 .contact-info {
   flex: 1;
-  background: rgba(30, 10, 60, 0.7);
-  border-radius: 15px;
-  padding: 2rem;
-  box-shadow: 0 0 10px #d14fff88;
+  padding: 1rem 0 1rem 1rem;
   color: #f0e7ff;
   font-size: 1.1rem;
   line-height: 1.6;
+  /* pas de fond, pas de bordure, pas d'ombre */
 }
 
 .contact-info h3 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 1rem;
   color: #ff66cc;
   text-shadow: 0 0 8px #ff66ccaa;
+  font-weight: 600;
 }
 
 .contact-info p {
@@ -507,19 +507,4 @@ button:focus,
 .contact-info a:focus {
   color: #d14fff;
   outline: none;
-}
-
-/* Formulaire à droite prend plus de place */
-.contact-form {
-  flex: 2;
-}
-
-/* Responsive : empile en colonne sur petits écrans */
-@media (max-width: 700px) {
-  .contact-container {
-    flex-direction: column;
-  }
-  .contact-info {
-    margin-bottom: 2rem;
-  }
 }

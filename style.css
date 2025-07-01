@@ -476,13 +476,12 @@ button:focus,
 }
 .contact_grid{
 	display:flex;
+	gap: 10px;
 }
 .contact-info {
   flex: 1;
-  background: rgba(30, 10, 60, 0.7);
   border-radius: 15px;
   padding: 2rem;
-  box-shadow: 0 0 10px #d14fff88;
   color: #f0e7ff;
   font-size: 1.1rem;
   line-height: 1.6;
@@ -524,4 +523,8 @@ button:focus,
   .contact-info {
     margin-bottom: 2rem;
   }
+  .contact_grid
+ {
+    display: grid;
+}
 }

@@ -348,8 +348,8 @@ h2 {
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  box-shadow: 0 0 12px #ff66cc;
-  background: #3a0a65;
+    box-shadow: 0 0 4px white;
+    background: rgba(30, 10, 60, 0.7);
 }
 
 .contact-form button {

@@ -542,18 +542,18 @@ button:focus,
 }
 
 .btn-cv {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.7rem 2rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  background: #3a0a65;
-  border: 1px solid #ff66cc;
-  border-radius: 30px;
-  box-shadow: 0 0 10px #d14fff;
-  text-decoration: none;
-  transition: all 0.3s ease;
+	display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: #3a0a65;
+    border: 1px solid #ff66cc;
+    border-radius: 30px;
+    box-shadow: 0 0 10px #d14fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .btn-cv:hover,

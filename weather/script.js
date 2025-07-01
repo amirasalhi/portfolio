@@ -38,7 +38,8 @@ form.addEventListener("submit", async (e) => {
 
     if (!response.ok || !contentType || !contentType.includes("application/json")) {
       const errorText = await response.text();
-      throw new Error("Erreur : " + errorText);
+     // throw new Error("Erreur : " + errorText);
+	  errorDiv.textContent = "Veuillez entrer un nom de ville correcte.";
     }
 
     const data = await response.json();

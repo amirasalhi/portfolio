@@ -516,8 +516,13 @@ button:focus,
   flex: 2;
 }
 .icon_contact{
-	width:40px;
+	width:30px;
+	vertical-align: baseline;
 }
+.icon_contact span{
+	vertical-align: super;
+}
+    
 /* Responsive : empile en colonne sur petits écrans */
 @media (max-width: 700px) {
   .contact-container {

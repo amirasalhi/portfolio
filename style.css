@@ -515,24 +515,29 @@ button:focus,
 .contact-form {
   flex: 2;
 }
+.contact-form p {
+	color: #ff66cc;
+    text-shadow: 0 0 8px #ff66ccaa;
+}
+
 .icon_contact{
 	width:30px;
 	vertical-align: baseline;
 }
 .contact-info > p > span{
 	vertical-align: super;
+	margin: 22px;
 }
     
 /* Responsive : empile en colonne sur petits écrans */
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   .contact-container {
     flex-direction: column;
   }
-  .contact-info {
-    margin-bottom: 2rem;
-  }
+
   .contact_grid
  {
     display: grid;
 }
 }
+

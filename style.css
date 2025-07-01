@@ -519,7 +519,7 @@ button:focus,
 	width:30px;
 	vertical-align: baseline;
 }
-.icon_contact span{
+.contact-info > p > span{
 	vertical-align: super;
 }
     

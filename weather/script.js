@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       weatherResult.hidden = false;
       weatherResult.classList.add("show");
     } catch (err) {
-      errorDiv.textContent =  "Veuillez entrer un nom de ville.";
+      errorDiv.textContent =  "Veuillez entrer un nom de ville correcte.";
     }
   });
     const toggleBtn = document.getElementById("toggleTheme");
